@@ -8,21 +8,27 @@ public class App {
 
     Scanner sc = new Scanner(System.in);
     System.out.print("첫 번째 숫자를 입력하세요: ");
-    int firstNumber = sc.nextInt();
-    System.out.print("두 번째 숫자를 입력하세요: ");
-    int secondNumber = sc.nextInt();
-    System.out.print("사칙연산 기호를 입력하세요: ");
-    String operator = sc.next();
-    int result = switch (operator){
-      case "+" -> firstNumber + secondNumber;
-      case "-" -> firstNumber - secondNumber;
-      case "*" -> firstNumber * secondNumber;
-      case "/" -> firstNumber / secondNumber;
-      case "%" -> firstNumber % secondNumber;
+    int result = sc.nextInt();
+    while (true) {
+      System.out.print("숫자를 입력하세요: ");
+      int secondNumber = sc.nextInt();
+      System.out.print("사칙연산 기호를 입력하세요: ");
+      String operator = sc.next();
+      result = switch (operator) {
+        case "+" -> result + secondNumber;
+        case "-" -> result - secondNumber;
+        case "*" -> result * secondNumber;
+        case "/" -> result / secondNumber;
+        case "%" -> result % secondNumber;
 
-      default -> throw new IllegalStateException("사칙 연산 기호가 '" + operator + "' 아닙니다. ");
-    };
-    System.out.println("결과: " + result);
-
+        default -> throw new IllegalStateException("사칙 연산 기호가 '" + operator + "' 아닙니다. ");
+      };
+      System.out.println("결과: " + result);
+      System.out.print("더 계산하시겠습니까? (exit 입력 시 종료)");
+      String answer = sc.next();
+      if (answer.equals("exit")) {
+        break;
+      }
+    }
   }
 }
