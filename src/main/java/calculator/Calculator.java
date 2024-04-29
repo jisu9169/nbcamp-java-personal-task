@@ -42,6 +42,12 @@ public class Calculator {
     }
   }
 
+  public void inquiryResults() {
+    while(!result.isEmpty()){
+      System.out.print(" "+ result.poll());
+    }
+  }
+
   public void calculate()
       throws IllegalAccessException {
     if (operator == '+') {

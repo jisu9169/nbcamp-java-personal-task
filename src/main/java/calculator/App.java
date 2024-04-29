@@ -30,13 +30,20 @@ public class App {
       if (remove.equals("remove")) {
         calculator.removeResult();
       }
+
+      System.out.println("계산된 결과 값들을 출력하시겠습니까? (inquiry 입력 시 종료)");
+      String inquiry = sc.next();
+      if (inquiry.equals("inquiry")) {
+        calculator.inquiryResults();
+      }
+
       System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
       String exit = sc.next();
       if (exit.equals("exit")) {
         break;
       }
-
     }
+
     Queue<Integer> result = calculator.getResult();
     sc.close();
     while (!result.isEmpty()) {
