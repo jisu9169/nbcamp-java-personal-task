@@ -1,28 +1,57 @@
 package calculator;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Calculator {
 
-  List<Integer> li = new ArrayList<>();
+  private int firstNumber;
+  private int secondNumber;
+  private char operator;
 
-  public List<Integer> calculate(int firstNumber, int secondNumber, char operator)
+  public Calculator() {
+  }
+
+  private final Queue<Integer> result = new LinkedList<>();
+
+
+  public void setFirstNumber(int firstNumber) {
+    this.firstNumber = firstNumber;
+  }
+
+  public void setSecondNumber(int secondNumber) {
+    this.secondNumber = secondNumber;
+  }
+
+  public void setOperator(char operator) {
+    this.operator = operator;
+  }
+
+  public Calculator(int firstNumber, int secondNumber, char operator) {
+    this.firstNumber = firstNumber;
+    this.secondNumber = secondNumber;
+    this.operator = operator;
+  }
+
+  public Queue<Integer> getResult() {
+    return result;
+  }
+
+  public void calculate()
       throws IllegalAccessException {
     if (operator == '+') {
-      li.add((firstNumber + secondNumber));
+      result.add((firstNumber + secondNumber));
     } else if (operator == '-') {
-      li.add((firstNumber - secondNumber));
+      result.add((firstNumber - secondNumber));
     } else if (operator == '*') {
-      li.add((firstNumber * secondNumber));
+      result.add((firstNumber * secondNumber));
     } else if (operator == '/') {
       if (secondNumber == 0) {
         throw new IllegalAccessException(" 분모 값을" + secondNumber + " 잘못 입력하셨습니다.");
       }
-      li.add( (firstNumber / secondNumber));
+      result.add((firstNumber / secondNumber));
     } else {
       throw new IllegalAccessException("사칙 연산값이 " + operator + " 로 아닙니다.");
     }
-    return li;
   }
 }
