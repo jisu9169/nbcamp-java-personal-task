@@ -1,6 +1,9 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Calculator {
@@ -8,11 +11,16 @@ public class Calculator {
   private int firstNumber;
   private int secondNumber;
   private char operator;
-
   private final Queue<Integer> result;
+
+  private static final double pie = 3.14;
+  private int radius;
+  private final List<Double> circleResult;
+
 
   public Calculator() {
     result = new LinkedList<>();
+    circleResult = new ArrayList<>();
   }
 
   public void setFirstNumber(int firstNumber) {
@@ -27,6 +35,10 @@ public class Calculator {
     this.operator = operator;
   }
 
+  public void setRadius(int radius) {
+    this.radius = radius;
+  }
+
   public Queue<Integer> getResult() {
     return result;
   }
@@ -37,10 +49,25 @@ public class Calculator {
     }
   }
 
-  public void inquiryResults() {
-    while (!result.isEmpty()) {
-      System.out.print(" " + result.poll());
+  public void inquiryCircleResult() {
+    for (Double c : circleResult) {
+      System.out.print(c+" ");
     }
+    System.out.println();
+  }
+
+  public void inquiryResults() {
+    if(result.isEmpty()) {
+      return;
+    }
+    for (Integer integer : result) {
+      System.out.print(" " + integer);
+    }
+    System.out.println();
+  }
+
+  public void calculateCircleArea() {
+    circleResult.add(radius * radius * pie);
   }
 
   public void calculate()
