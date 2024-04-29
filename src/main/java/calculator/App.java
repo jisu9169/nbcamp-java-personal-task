@@ -13,5 +13,16 @@ public class App {
     int secondNumber = sc.nextInt();
     System.out.print("사칙연산 기호를 입력하세요: ");
     String operator = sc.next();
+    int result = switch (operator){
+      case "+" -> firstNumber + secondNumber;
+      case "-" -> firstNumber - secondNumber;
+      case "*" -> firstNumber * secondNumber;
+      case "/" -> firstNumber / secondNumber;
+      case "%" -> firstNumber % secondNumber;
+
+      default -> throw new IllegalStateException("사칙 연산 기호가 '" + operator + "' 아닙니다. ");
+    };
+    System.out.println("결과: " + result);
+
   }
 }
