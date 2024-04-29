@@ -9,9 +9,10 @@ public class Calculator {
   private int secondNumber;
   private char operator;
 
-  private final Queue<Integer> result = new LinkedList<>();
+  private final Queue<Integer> result;
 
   public Calculator() {
+    result = new LinkedList<>();
   }
 
   public void setFirstNumber(int firstNumber) {
@@ -26,25 +27,19 @@ public class Calculator {
     this.operator = operator;
   }
 
-  public Calculator(int firstNumber, int secondNumber, char operator) {
-    this.firstNumber = firstNumber;
-    this.secondNumber = secondNumber;
-    this.operator = operator;
-  }
-
   public Queue<Integer> getResult() {
     return result;
   }
 
-  public void removeResult(){
-    if(!result.isEmpty()){
+  public void removeResult() {
+    if (!result.isEmpty()) {
       result.poll();
     }
   }
 
   public void inquiryResults() {
-    while(!result.isEmpty()){
-      System.out.print(" "+ result.poll());
+    while (!result.isEmpty()) {
+      System.out.print(" " + result.poll());
     }
   }
 
