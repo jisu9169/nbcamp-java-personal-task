@@ -25,11 +25,17 @@ public class App {
       calculator.setOperator(operator);
       calculator.calculate();
 
+      System.out.println("최근 저장된 결과값 삭제하시겠습니까? (remove 입력시 삭제)");
+      String remove = sc.next();
+      if (remove.equals("remove")) {
+        calculator.removeResult();
+      }
       System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
       String exit = sc.next();
       if (exit.equals("exit")) {
         break;
       }
+
     }
     Queue<Integer> result = calculator.getResult();
     sc.close();

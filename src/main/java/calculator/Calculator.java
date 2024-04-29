@@ -9,11 +9,10 @@ public class Calculator {
   private int secondNumber;
   private char operator;
 
-  public Calculator() {
-  }
-
   private final Queue<Integer> result = new LinkedList<>();
 
+  public Calculator() {
+  }
 
   public void setFirstNumber(int firstNumber) {
     this.firstNumber = firstNumber;
@@ -35,6 +34,12 @@ public class Calculator {
 
   public Queue<Integer> getResult() {
     return result;
+  }
+
+  public void removeResult(){
+    if(!result.isEmpty()){
+      result.poll();
+    }
   }
 
   public void calculate()
