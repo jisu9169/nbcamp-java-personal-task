@@ -1,8 +1,14 @@
 package calculator;
 
-public abstract class Calculator {
+public class Calculator {
 
-  public abstract void calculate(int firstNumber, int secondNumber, char operator);
-  public abstract void calculate(int radius);
-  public abstract void inquiry();
+  private final ArithmeticCalculator arithmeticCalculator;
+
+  public Calculator(ArithmeticCalculator arithmeticCalculator) {
+    this.arithmeticCalculator = arithmeticCalculator;
+  }
+
+  public ArithmeticCalculator getArithmeticCalculator() {
+    return arithmeticCalculator;
+  }
 }
