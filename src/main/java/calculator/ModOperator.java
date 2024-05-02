@@ -3,7 +3,7 @@ package calculator;
 public class ModOperator extends ArithmeticCalculator {
 
   @Override
-  public double operate(int firstNumber, int secondNumber) {
+  public double operate(Double firstNumber, Double secondNumber) {
     return firstNumber % secondNumber;
   }
 }
