@@ -15,7 +15,7 @@ public class App {
       System.out.print("원의 넓이를 구하시겠습니까? 연산을 하시겠습니까? ['원 = 1' or '연산 = 2'] ");
       String select = sc.next();
       if (select.equals("1")) {
-        System.out.print("반지름의 길이를 입력하세요 : ");
+        System.out.print("반지름 길이를 입력하세요 : ");
         Double radius = sc.nextDouble();
         circleCalculator.getCircleList().add(circleCalculator.calculator(radius));
 
