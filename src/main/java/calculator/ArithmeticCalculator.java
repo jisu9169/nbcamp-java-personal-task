@@ -21,7 +21,7 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
 
   @Override
   void inquiryResults() {
-    for (Object v : super.getArithemeticList()) {
+    for (Double v : super.getArithemeticList()) {
       System.out.print(v + " ");
     }
     System.out.println();
@@ -30,5 +30,16 @@ public class ArithmeticCalculator<T extends Number> extends Calculator {
   @Override
   void resultRemove() {
     super.arithemeticList.removeFirst();
+  }
+
+  /**
+   * 저장된 결과 중 입력값보다 큰 결과값들을 출력/조회 하는 메서드
+   * */
+  public void printResultGreaterThan(double number) {
+    super.getArithemeticList()
+        .stream()
+        .filter(result ->result > number)
+        .forEach(result -> System.out.println("연살결과 = " + result));
+
   }
 }

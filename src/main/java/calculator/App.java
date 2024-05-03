@@ -1,6 +1,7 @@
 package calculator;
 
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
@@ -38,7 +39,7 @@ public class App {
         System.out.print("사칙 연산 기호를 입력 하세요: ");
         char operator = sc.next().charAt(0);
         arithmeticCalculator.getArithemeticList()
-            .add(arithmeticCalculator.calculator(operator, firstNumber, secondNumber));
+            .add((Double) arithmeticCalculator.calculator(operator, firstNumber, secondNumber));
 
         System.out.print("최근 계산된 연산 값을 삭제 하시겠습니까?:[remove 출력] ");
         String remove = sc.next();
@@ -50,6 +51,13 @@ public class App {
         if (inquiry.equals("inquiry")) {
           arithmeticCalculator.inquiryResults();
         }
+        System.out.println("저장된 연산결과 중 입력한 값보다 큰 값을 조회하시겠습니까? [lambda 입력시 조회]");
+        if(Objects.equals(sc.next(), "lambda")) {
+          System.out.println("기준 값을 입력하세요. ");
+          Double number = sc.nextDouble();
+          arithmeticCalculator.printResultGreaterThan(number);
+        }
+
       } else {
         throw new IllegalAccessException();
       }
