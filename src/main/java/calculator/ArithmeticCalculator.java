@@ -1,28 +1,26 @@
 package calculator;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ArithmeticCalculator extends Calculator {
 
-  public double calculator(char operator,Double firstNumber, Double secondNumber) {
-    return operatorFactory(operator).operate(firstNumber, secondNumber);
+  private final OperatorFactory operatorFactory;
+
+  private static final Map<String, Operator> map = new HashMap<>();
+
+  public ArithmeticCalculator() {
+    operatorFactory = new OperatorFactory();
   }
 
-  private Operator operatorFactory(char operator) {
-    return switch (operator) {
-      case '+' -> new AddOperator();
-      case '-' -> new SubtractOperator();
-      case '*' -> new MultiplyOperator();
-      case '/' -> new DivideOperator();
-      case '%' -> new ModOperator();
-      default -> throw new UnsupportedOperationException("올바른 선택이 아닙니다." + operator);
-    };
+  public double calculator(char operator, Double firstNumber, Double secondNumber) {
+    return operatorFactory.getOperator(operator).operate(firstNumber, secondNumber);
   }
 
   @Override
   void inquiryResults() {
     for (Double v : super.getArithemeticList()) {
-      System.out.print(v+ " ");
+      System.out.print(v + " ");
     }
     System.out.println();
   }
