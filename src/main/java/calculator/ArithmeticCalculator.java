@@ -3,23 +3,25 @@ package calculator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator<T extends Number> extends Calculator {
 
+  public final Class<T> type;
   private final OperatorFactory operatorFactory;
+
+  public ArithmeticCalculator(Class<T> type) {
+    this.type = type;
+    this.operatorFactory = new OperatorFactory(type);
+  }
 
   private static final Map<String, Operator> map = new HashMap<>();
 
-  public ArithmeticCalculator() {
-    operatorFactory = new OperatorFactory();
-  }
-
-  public double calculator(char operator, Double firstNumber, Double secondNumber) {
-    return operatorFactory.getOperator(operator).operate(firstNumber, secondNumber);
+  public T calculator(char operator, T firstNumber, T secondNumber) {
+    return (T) operatorFactory.getOperator(operator).operate(firstNumber, secondNumber);
   }
 
   @Override
   void inquiryResults() {
-    for (Double v : super.getArithemeticList()) {
+    for (Object v : super.getArithemeticList()) {
       System.out.print(v + " ");
     }
     System.out.println();

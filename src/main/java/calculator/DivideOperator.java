@@ -1,13 +1,20 @@
 package calculator;
 
-public class DivideOperator implements Operator{
+public class DivideOperator<T extends Number> implements Operator<T>{
+
+  public final Class<T> type;
+
+  public DivideOperator(Class<T> type) {
+    this.type = type;
+  }
 
   @Override
-  public double operate(Double firstNumber, Double secondNumber) {
-    if (secondNumber == 0) {
-      throw new ArithmeticException("Divide by zero");
+  public T operate(T firstNumber, T secondNumber) {
+    if (secondNumber.doubleValue() == 0) {
+      throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력 될 수 없습니다.");
     }
-    return (double) firstNumber / secondNumber;
+    double result = firstNumber.doubleValue() / secondNumber.doubleValue();
+    return  NumberConversionUtils.convertNumberToType(result, type);
   }
 }
 

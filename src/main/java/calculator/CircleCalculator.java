@@ -6,7 +6,7 @@ public class CircleCalculator extends Calculator {
 
   @Override
   void inquiryResults() {
-    for (Double v : super.getCircleList()) {
+    for (Object v : super.getCircleList()) {
       System.out.print(v+" ");
     }
     System.out.println();

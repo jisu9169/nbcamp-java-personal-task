@@ -8,7 +8,7 @@ public class App {
   public static void main(String[] args) throws IllegalAccessException {
 
     Scanner sc = new Scanner(System.in);
-    ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
+    ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator<>(Double.class);
     CircleCalculator circleCalculator = new CircleCalculator();
 
     while (true) {

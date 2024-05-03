@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class Calculator {
+public abstract class Calculator<T extends Number> {
 
-  List<Double> arithemeticList = new ArrayList<>();
-  List<Double> circleList = new ArrayList<>();
+  List<T> arithemeticList = new ArrayList<>();
+  List<T> circleList = new ArrayList<>();
 
-  public List<Double> getArithemeticList() {
+  public List<T> getArithemeticList() {
     return arithemeticList;
   }
 
-  public List<Double> getCircleList() {
+  public List<T> getCircleList() {
     return circleList;
   }
   abstract void inquiryResults();

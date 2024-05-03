@@ -1,7 +1,7 @@
 package calculator;
 
-public interface Operator {
+public interface Operator<T extends Number> {
 
-  double operate(Double firstNumber, Double secondNumber);
+  T operate(T firstNumber, T secondNumber);
 
 }
